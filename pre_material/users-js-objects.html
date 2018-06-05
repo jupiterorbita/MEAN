@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users JS objects</title>
+</head>
+<body>
+    <h1>Users JS objects</h1>
+    <script>
+    users = [
+  {
+    fname: "Kermit",
+    lname: "the Frog",
+    languages: ["Python", "JavaScript", "C#", "HTML", "CSS", "SQL"],
+    interests: {
+      music: ["guitar", "flute"],
+      dance: ["tap", "salsa"],
+      television: ["Black Mirror", "Stranger Things"]
+    }
+  },
+  {
+    fname: "Winnie",
+    lname: "the Pooh",
+    languages: ["Python", "Swift", "Java"],
+    interests: {
+      food: ["honey", "honeycomb"],
+      flowers: ["honeysuckle"],
+      mysteries: ["Heffalumps"]
+    }
+  },
+  {
+    fname: "Arthur",
+    lname: "Dent",
+    languages: ["JavaScript", "HTML", "Go"],
+    interests: {
+      space: ["stars", "planets", "improbability"],
+      home: ["tea", "yellow bulldozers"]
+    }
+  }
+]
+// console.log(users.users[2].interests.space)
+
+// function userLanguages(arr){
+//     var sentense = "";
+//     for (var i=0; i<arr.length; i++){
+//         sentense = arr[i].fname+" "+arr[i].lname+ " likes :";
+//         // sentense = sentense+",";
+//         // console.log(sentense);
+//         for (var x=0; x<arr[i].languages.length; x++){
+//             sentense = sentense +", "+ arr[i].languages[x];
+//             // console.log(sentense)
+//         }
+//     console.log(sentense);
+//     }
+// }
+function userLanguages(users){
+    for (var i=0; i<users.length; i++){
+        var user = users[i];
+        console.log(user.fname+" "+user.lname+", languages => "+user.languages); 
+    }
+}
+userLanguages(users);
+
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+A function call is equal to whatever that function returns
+
+
+
+var total = tip(thaifood);
+console.log(total / group);

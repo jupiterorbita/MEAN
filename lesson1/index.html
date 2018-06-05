@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+    
+    
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        var favoritepokemon;
+        $.get("https://pokeapi.co/api/v2/pokemon/1/", function(data){
+            console.log(data);
+            favoritepokemon = data.name;
+        })
+        console.log("my favorite", favoritepokemon);
+    })
+
+    console.log("#########");
+
+    var first = "vanilla latte";
+    var second = "cookie";
+    console.log(swap([first, second]));
+    function swap(items){
+        first = items[1];
+        var second = items[0];
+        return [first, second];
+    }
+    console.log(first, second);
+
+    console.log("$$$$$$$$$$$$$$")
+
+    
+    // $(‘img’).click(function(){
+    //     console.log(“fetching”);
+    //     $.get(“https://pokeapi.co/api/v2/pokemon/1/”, function(data){
+    //           favoritepokemon = data.name;
+    //           $(‘p’).html(favoritepokemon);
+    //     })
+    // })
+
+</script>

@@ -1,0 +1,29 @@
+<html>
+    <h1>braces valid</h1>
+</html>
+<script>
+function checkParant(str) {
+            console.log(str);
+
+            var count = 0;
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] == "(")
+                    count ++;
+                else if (str[i] == ")") {
+                    count--;
+                    if (count < 0)
+                        return false;
+                }
+            }
+
+            if (count == 0)
+                return true;
+            else
+                return false;
+        }
+    console.log(checkParant("(()"));
+    console.log(checkParant(")(()"));
+    </script>
+
+
+</script>

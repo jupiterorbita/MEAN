@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coin Change</title>
+</head>
+
+<body>
+<h1>COIN CHANGE ATTEMPT 2</h1>
+<script>
+    //coin change
+    var dollars;
+    var quaters;
+    var dimes;
+    var nickels;
+    var pennies;
+    var change;
+
+    function returnChange(num) {
+        change = num % 100;
+
+        dollars = Math.floor(num/100);
+        quarters = Math.floor(num / 25);
+        change = change % 25;
+        dimes = Math.floor(change / 10);
+        change = change % 10;
+        nickels = Math.floor(change / 5);
+        pennies = change % 5;
+        console.log(dollars, quarters, dimes, nickels, pennies);
+    }
+
+    console.log(returnChange(321));
+
+</script>
+</body>
+
+</html>

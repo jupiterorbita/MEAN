@@ -1,0 +1,54 @@
+<script>
+// coin change
+function coinChange(num){
+  var change =0;
+  var dollars=0;
+  var quaters=0;
+  var dimes=0;
+  var nickels=0;
+  var pennies=0;
+  
+  change=num % 100;
+  dollars = Math.floor(num/100);
+  change = num % 25;
+  quaters = Math.floor(change/25);
+  dimes=Math.floor(change/10);
+  change=change%10;
+  nickels=Math.floor(change/5);
+  pennies=change%5;
+  
+  console.log('dollars '+dollars);
+  console.log('quaters '+quaters);
+  console.log('dimes '+dimes);
+  console.log('nickels '+nickels)
+  console.log('pennies '+pennies);
+}
+coinChange(312);
+
+//alternative:
+// var dollars = 0;
+//     var dimes = 0;
+//     var nickels = 0;
+//     var pennis = 0;
+//     function coins(n){
+//         var change = n;
+//         dollars = Math.floor(n/100);
+//         change = (n - (100dollars));
+//         quarters = Math.floor(change/25);
+//         change = (change -(25quarters));
+//         dimes = Math.floor(change/10);
+//         change = (change-(10dimes));
+//         nickels = Math.floor(change/5);
+//         change = (change - (5nickels));
+//         pennies = Math.floor(change/1);
+//         change = (change - (1*pennies));
+//         console.log(dollars,"dollars")
+//         console.log(quarters,"quarters")
+//         console.log(dimes,"dimes")
+//         console.log(nickels,"nickels")
+//         console.log(pennies,"pennies")
+//         console.log(change,"change left over")
+//     }
+//     coins(312)
+
+</script>

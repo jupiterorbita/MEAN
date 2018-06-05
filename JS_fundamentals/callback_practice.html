@@ -1,0 +1,81 @@
+<script>
+console.log("NOW: ");
+console.log("Declaring and assigning variable 'ninja'.");
+
+var ninja = 'Libby';
+
+//the whole function gets delayed for 2 secs
+setTimeout( function myCallbackFunction(){
+  console.log("LATER: ")
+  console.log(ninja, "LATER"); 
+  }, 2000
+  );
+
+console.log("Printing ninja value.");
+console.log(ninja, "NOW");
+
+
+console.log("***************************")
+var a = 2;
+var b = function() { console.log("something"); };
+function doSomething(x) {
+  console.log(typeof(x));
+}
+doSomething(a);
+doSomething(b);
+
+//here we are passing a fucntion as a parameter of a function
+//
+console.log("*================================*")
+function doSomething(possibleCallback_BOB) {
+  if (typeof(possibleCallback_BOB) === 'function'){
+    console.log('possibleCallback is a callback!');
+    possibleCallback_BOB(); //we can invoke the callback!
+  }
+  else {
+    console.log('possibleCallback_BOB: ', possibleCallback_BOB, ' is not a callback function.');
+  }
+}
+doSomething(function myCallback(){ console.log('yes, I am a callback!') });
+doSomething('string');
+console.log("*================================*")
+
+// function makePasta(pasta, makeSauce) {
+//   console.log("Boiling water");
+//   console.log("Putting " + pasta + " pasta in the water");
+//   console.log("Pasta is done!");
+//   return pasta + " Pasta! Voila!"; //it returns but we dont see it bc we are not console.log it or use it anywhere.
+// }
+// makePasta("Penne");
+// // console.log("asdasdasd =>",asd);
+// makePasta("Farfalle");
+console.log("$---------------------------$")
+
+
+
+
+function makePasta(pasta, makeSauce) {
+  console.log("Boiling water");
+  console.log("Putting " + pasta + " pasta in the water");
+  // create a variable for sauce!
+  var sauce = makeSauce();          // invoke makeSauce, our callback
+  console.log("Mixing sauce");
+  console.log("Pasta is done!");
+  return pasta + " Pasta with " + sauce + " sauce! Voila!";
+}
+function makePesto() {
+  console.log("Making Pesto");
+  return "pesto";
+}
+function makeAlfredo() {
+  console.log("Making Alfredo");
+  return "alfredo";
+}
+// we pass the whole makePesto recipe to makePasta!
+console.log(makePasta("Penne", makePesto));
+// notice lack of parentheses after makePesto.
+// Remember: we want to pass the function, not execute it and pass a return value.
+console.log(makePasta("Farfalle", makeAlfredo));
+
+
+</script>

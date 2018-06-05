@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS objects</title>
+</head>
+<body>
+    <h1>JS objects</h1>
+    <script>
+
+    let students = [
+    {name: 'Remy', cohort: 'Jan'},
+    {name: 'Genevieve', cohort: 'March'},
+    {name: 'Chuck', cohort: 'Jan'},
+    {name: 'Osmund', cohort: 'June'},
+    {name: 'Nikki', cohort: 'June'},
+    {name: 'Boris', cohort: 'June'}
+    ];
+    //Write a function that accepts an array of student objects, as shown below. Print all of the students' names and their cohorts.
+    function studentCohort(students){
+        for (var i=0; i<students.length; i++){
+            var student = students[i];
+            console.log("Name: "+student.name+", Cohort: "+student.cohort);
+        }
+    }
+    
+    studentCohort(students);
+    console.log("#################################")
+
+    let users1 = {
+    employees: [
+        {'first_name':  'Miguel', 'last_name' : 'Jones'},
+        {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+        {'first_name' : 'Nora', 'last_name' : 'Lu'},
+        {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+    ],
+    managers: [
+       {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+       {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+    ]
+    };
+    
+    function employeesManagers(users){
+            var employees = users.employees;
+            var managers = users.managers;
+            // console.log(employees);
+                console.log("EMPLOYEES:")
+            for (var i=0; i<users.employees.length; i++){
+                console.log(i+1+" "+users.employees[i].first_name+", "+users.employees[i].last_name+", "+(users.employees[i].first_name.length+users.employees[i].last_name.length));
+            }
+                console.log("MANAGERS:")
+            for (var x=0; x<users.managers.length; x++){
+                console.log(x+1+" "+users.managers[x].first_name+", "+users.managers[x].last_name+", "+(users.managers[x].first_name.length+users.managers[x].last_name.length));
+            }
+        }
+    
+    employeesManagers(users1);
+    
+    </script>
+</body>
+</html>
