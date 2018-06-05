@@ -1,0 +1,34 @@
+<script>
+
+    function Car(make, val){
+        this.make = make;
+        this.damage = val;
+        this.hit = function(othercar){
+            this.damage +=20;
+            othercar.damage +=20;
+            console.log(this.make+" hit "+othercar.make+" for "+this.damage+" damage");
+        }
+    }
+
+    var honda = new Car("honda", 30);
+    var toyota = new Car("toyota", 40);
+
+    honda.hit(toyota);
+    honda.hit(toyota);
+
+    //ES6 
+    class CarES6{
+    constructor(damage, name){
+        this.damage = damage;
+        this.name = name;
+        }
+        hit(car){
+            this.damage+=1;
+            car.damage+=1;
+            console.log("a "+this.name +" hits a "+ car.name +" made "+this.damage +" of damage");
+        }
+    }
+    var car = new CarES6(10,"Jeep");
+    var car2 = new CarES6(10,"Honda");
+    car.hit(car2);
+</script>

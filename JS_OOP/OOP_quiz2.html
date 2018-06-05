@@ -1,0 +1,32 @@
+<script>
+    // function Foo(){
+    //     const privateMethod = function(){
+    //         console.log(this);
+    //     }
+    //     this.greet = function(){
+    //         console.log("hello!");
+    //         privateMethod();
+    //     }
+    // }
+
+    // const joe = new Foo();
+
+    // joe.greet();
+
+
+//this is how it will return the object instead of the window obj above!!!! self=this
+    function Foo(){
+        var self = this;
+        var privateMethod = function(){
+            console.log(self);
+        }
+        this.greet = function(){
+            console.log("hello!");
+            privateMethod();
+            }
+    }
+
+    const joe = new Foo();
+    
+    joe.greet();
+</script>

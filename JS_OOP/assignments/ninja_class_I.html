@@ -1,0 +1,49 @@
+<script>
+
+    function Ninja(name){
+        this.name = name;
+        this.health = 100;
+        var speed = 3;
+        var strength = 3;
+
+        this.drinkSake = function(){
+            this.health += 10;
+            console.log("drank sake and now hp is "+this.health);
+            return this.health;
+        }
+        
+        this.sayName = function(){
+            console.log("My ninja name is "+this.name);
+        }
+        this.showStats = function(){
+            console.log("my name is ", this.name);
+            console.log("my strength is", strength);
+
+        }
+        //getter
+        this.getSpeed = function(){
+            return speed;
+        }
+        //setter
+        this.setSpeed = function(newSpeed){
+            speed=newSpeed;
+        }
+        
+    }
+
+var ninja1 = new Ninja("Hayabusha");
+
+console.log(ninja1.name);
+console.log(ninja1.strength);
+
+ninja1.sayName();
+ninja1.showStats();
+console.log(ninja1.name+"'s speed is =>",ninja1.getSpeed());
+
+ninja1.setSpeed(12);
+console.log(ninja1.name+"'s speed is ",ninja1.getSpeed());
+
+console.log("=========")
+console.log("drink sake =>",ninja1.drinkSake());
+ninja1.drinkSake();
+</script>
