@@ -27,11 +27,46 @@ var kanga = {
     west: null
 }
 
-
+var owl = {
+    name: 'owl',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+var chris = {
+    name: 'chris',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+var rabbit = {
+    name: 'rabbit',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+var gopher = {
+    name: 'gopher',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
 heffalumps.west = eeyore;
 eeyore.east = heffalumps;
 eeyore.south = kanga;
 kanga.north = eeyore;
+kanga.south = chris;
+chris.north = kanga;
+chris.west = owl;
+chris.east = rabbit;
+owl.east = chris;
+rabbit.west = chris
+rabbit.east = gopher;
+gopher.west = rabbit;
 
 console.log('kanga.north=>',kanga.north);
 console.log(heffalumps.west.south)

@@ -1,0 +1,70 @@
+<script>
+
+var eeyore = { name: 'eeyore'}
+var heffalumps = { name: 'heffalumps'}
+var kanga = { name: 'kanga'}
+var owl = { name: 'owl'}
+var chris = { name: 'chris'}
+var rabbit = { name: 'rabbit'}
+var gopher = {
+    name: 'gopher',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+
+heffalumps.west = eeyore;
+eeyore.east = heffalumps;
+eeyore.south = kanga;
+kanga.north = eeyore;
+kanga.south = chris;
+chris.north = kanga;
+chris.west = owl;
+chris.east = rabbit;
+owl.east = chris;
+rabbit.west = chris
+rabbit.east = gopher;
+gopher.west = rabbit;
+// console.log('kanga.north=>',kanga.north);
+// console.log(heffalumps.west.south)
+
+
+var player = {location: kanga}
+console.log("player.location.name =>", player.location.name)
+// console.log("player.north =>", player.north)
+
+function move (direction){
+    console.log("you are now at ", player.location.name)
+    if (player.location[direction]){
+    //     if (direction=="north"){
+    //         // player = {location: player.location.direction.name}
+    //         player.location = player.location[direction];
+    //         console.log("you MOVED and are now at "+player.location.name+"'s house");
+    //     }
+    //     else if (direction=="south"){
+    //         // player.location = player.location.south; //not this!!!!
+    //         player.location = player.location[direction];
+    //         console.log("you MOVED are now at "+player.location.name+"'s house");
+    //     }
+    //     else if (direction=="east"){
+    //         player.location = player.location[direction];
+    //         console.log("you MOVED and are now at "+player.location.name+"'s house");
+    //     }
+    //     else if (direction=="west"){
+    //         player.location = player.location[direction];
+    //         console.log("you MOVED and are now at ", player.location.name, "'s house");
+    //     }
+    // }
+            player.location = player.location[direction];
+            console.log("you MOVED and are now at ", player.location.name, "'s house");
+    }
+    else{
+        console.log("**** you can't move there! ****")
+    }
+}
+
+// }
+
+// move("north")
+</script>
