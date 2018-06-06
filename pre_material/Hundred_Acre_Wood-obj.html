@@ -1,0 +1,38 @@
+<script>
+//Hundred Acre Wood
+//semi complete 
+//bc it's a bit tedious and i just want to see that i understand it
+
+var eeyore = {
+    name: 'eeyore',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+
+var heffalumps = {
+    name: 'heffalumps',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+
+var kanga = {
+    name: 'kanga',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+
+
+heffalumps.west = eeyore;
+eeyore.east = heffalumps;
+eeyore.south = kanga;
+kanga.north = eeyore;
+
+console.log('kanga.north=>',kanga.north);
+console.log(heffalumps.west.south)
+</script>

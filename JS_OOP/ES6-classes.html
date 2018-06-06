@@ -1,10 +1,53 @@
 <script>
-    class Dot {
-    constructor(x, y) {
+//     class Dot {
+//     constructor(x, y) {
+//         this.x = x;
+//         this.y = y;
+//         console.log("You created a Dot!");
+//     }
+// }
+// const dot1 = new Dot(10, 10);
+// console.log(dot1.x, dot1.y);
+
+//ES5
+function Dot(x, y){
+    this.x = x;
+    this.y = y
+}
+
+Dot.prototype.showLocation = function(){
+    console.log("this dot is at x:"+this.x+"and y:"+this.y);
+}
+var dot1 = new Dot(55, 20);
+dot1.showLocation();
+
+//ES6
+class Dot2{
+    constructor(x, y){
         this.x = x;
         this.y = y;
-        console.log("You created a Dot!");
+    }
+    //protoype method
+    showLocation(){
+        console.log(`dot is at x=> ${this.x} and y =>${this.y}`)
+    }
+    // static method
+    static getHelp(){
+        console.log("var something = new dot(param1, param2)")
     }
 }
-const dot1 = new Dot(10, 10);
+const dot2 = new Dot2(4, 13);
+
+dot2.showLocation();
+// we can see showLocation from our instance...
+console.log('console.log(dot2.showLocation) =>', dot2.showLocation);
+// but we can't see getHelp
+console.log(dot2.getHelp);
+// however we can call getHelp this way:
+Dot2.getHelp();
+//Here we added a static method called getHelp(). 
+//This means that getHelp() is accessible from the Class, not the instance.
+
+
+
 </script>

@@ -1,0 +1,30 @@
+<script>
+    //must add ojb contructors
+    //init list and nodes
+    
+    function palindrome(list){
+    var values = [];
+    if (list.head == null){
+        return false;
+    } else {
+        runner = list.head;
+        while(runner){
+            values.push(runner.val);
+            runner=runner.next;
+        }
+        var isPalindrome = true;
+        for(var i=0; i<(values.length/2); i++){
+        var comp1 = values[i];
+        var comp2 = values[(values.length-1)-i];
+        console.log("i = " + i)
+        console.log("comp1 = " + comp1)
+        console.log("comp2 = " + comp2)
+            if (comp1 !== comp2){
+                isPalindrome = false;
+            }
+        }
+        console.log("Palindrome results: ", isPalindrome);
+        return isPalindrome;
+    }
+}
+</script>
