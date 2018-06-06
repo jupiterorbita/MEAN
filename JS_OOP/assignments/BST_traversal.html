@@ -1,0 +1,128 @@
+<script>
+    function BST() {
+        this.root = null;
+        //TRAVERSE IN ORDER FUNCTION
+        this.inOrder = function(){
+                if(this.root == null) {
+                return null;
+            }
+            else {
+            var result = new Array();
+            function traverseInOrder(node){
+                //BELOW, WE TRAVEL DOWN THE LEFT BRANCH
+                node.left && traverseInOrder(node.left);
+                result.push(node.value);
+                //BELOW WE TRAVEL DOWN THE RIGHT BRANCH
+                node.right && traverseInOrder(node.right);
+            }
+            traverseInOrder(this.root);
+            return result; 
+            }
+        }
+        this.postOrder = function(){
+                if(this.root == null) {
+                    return null;
+                }
+            else{
+            var result = new Array();
+            function traversePostOrder(node){
+                node.left && traversePostOrder(node.left);
+                node.right && traversePostOrder(node.right);
+                result.push(node.value);
+            }
+            traversePostOrder(this.root);
+            return result;
+            }
+        }
+
+        this.preOrder = function(){
+            if(this.root == null) {
+                return null;
+            }
+        else{
+        var result = new Array();
+        function traversePreOrder(node){
+            result.push(node.value);
+            node.left && traversePreOrder(node.left);
+            node.right && traversePreOrder(node.right);
+        }
+        traversePreOrder(this.root);
+        return result;
+        };
+
+        }
+
+
+    }
+    function Node(val) {
+        this.value = val;
+        this.left = null;
+        this.right = null;
+    }
+
+
+    BST.prototype.insert = function(val){
+         //use this because it's an instance, need to check that specific instance's root
+
+        if(!this.root){
+            this.root = new Node(val);
+            return this;
+        }
+        //IF there IS a root, create a runner and point it towards the root
+        var runner = this.root;
+        //THEN need to check if val < runner val or > runner val
+        //NEED something that will always be True
+        while(runner){
+            if(val<runner.value){
+                //LOOK to LEFT and see if exists
+                if(runner.left){
+                    //MAKE RUNNER RUNNER.LEFT
+                    runner = runner.left
+                }
+                else{
+                    runner.left = new Node(val);
+                    return this;
+                }
+            }
+            //CHECK IF VAL > Runner.val which = to this.root
+            if(val >runner.value){
+                //IF val is greater than (root) then look right
+                if(runner.right){
+                    runner = runner.right;
+                }
+                else{
+                    runner.right = new Node(val);
+                    return this;
+                }
+            }
+        }
+    }
+    const bst = new BST();
+    bst.insert(40).insert(20).insert(50).insert(25);
+    console.log(bst.root);
+
+    // function inOrder() {
+    //     if(this.root == null) {
+    //         return null;
+    //     }
+    //     else {
+    //     var result = new Array();
+    //     function traverseInOrder(node){
+    //         //BELOW, WE TRAVEL DOWN THE LEFT BRANCH
+    //         node.left && traverseInOrder(node.left);
+    //         result.push(node.value);
+    //         //BELOW WE TRAVEL DOWN THE RIGHT BRANCH
+    //         node.right && traverseInOrder(node.right);
+    //     }
+    //     traverseInOrder(this.root);
+    //     return result; 
+    //     };
+    // }
+
+
+    console.log(bst.inOrder());
+    console.log(bst.postOrder());
+    console.log(bst.preOrder());
+
+
+</script>
