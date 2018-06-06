@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<style>
+    *{
+        padding-left: 10px;
+    }
+</style>
+
+</head>
+<body>
+    <h1>trivia Geography Questions</h1>
+    <hr>
+    <h4 id='q'>placeholder Question</h4>
+    <button id='t'>true</button> <button id='f'>false</button>
+
+    <script>
+    $(document).ready(function(){
+    var trivia;
+    $.get("https://opentdb.com/api.php?amount=15&category=22&difficulty=medium&type=boolean", function(data){     
+        var rand_q = Math.floor(Math.random() * 10);
+        question = data.results[rand_q].question;
+        right_answer = data.results[rand_q].correct_answer;
+        console.log("question =>", data.results[rand_q].question);
+        console.log("correct answer =>", data.results[rand_q].correct_answer);
+        console.log("response_code =>", data.results);      // Predict the output!
+        $("#q").html(question)
+        $("#t").click(function(){
+            if (data.results[rand_q].correct_answer == "True"){
+                alert("correct");
+                location.reload();
+            }
+            else{
+                alert("WRONG!")
+                location.reload();
+            }
+            })
+        $("#f").click(function(){
+            if (data.results[rand_q].correct_answer == "False"){
+                alert("A WINRAR IS YOU!");
+                location.reload();
+            }
+            else{
+                alert("NOPE.avi")
+                location.reload();
+            }
+        })    
+        })
+        
+        });
+        
+        
+    //     if (data.response_code == 0){
+    //         console.log("success api request")
+    //     }
+    //     else{ console.log("error api request")}
+
+    // })    
+    </script>
+</body>
+</html>
