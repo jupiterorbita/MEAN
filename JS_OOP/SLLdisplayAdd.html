@@ -1,0 +1,62 @@
+<script>
+// object constructors
+function SLL(){
+    this.head=null;
+}
+
+function Node(val){
+    this.val = val;
+    this.next = null;
+}
+
+// "this" ==> the particilar instance of that object that is utilizing that attribute or method.
+
+/// MAKING INSTANCES
+
+var firstlist = new SLL();
+firstlist.head = new Node(5);
+firstlist.head.next = new Node(6);
+firstlist.head.next.next = new Node(7);
+firstlist.head.next.next.next = new Node(8);
+// console.log(firstlist);
+
+
+function displayList(list){
+    if (!list.head){
+        return "empty list";
+    }
+    var valuestring = "";
+    var current = list.head;
+    while(current){
+        valuestring += current.val + ", ";
+        current = current.next; 
+    }
+    return valuestring;
+}
+
+// console.log(displayList(firstlist));
+
+
+//add to A LIST the val you want to add
+function addToList(list, val){
+    var newnode = new Node(val);
+    if(!list.head){
+        list.head = newnode;
+        // return list; //if we are not returning have ELSE
+    }
+    else{
+        var current = list.head;
+        while(current.next){
+            current = current.next;
+        }
+        current.next = newnode;
+    }
+}
+
+addToList(firstlist, 9);
+addToList(firstlist, 10);
+console.log(displayList(firstlist));
+
+// var secondlist = new SLL();
+// console.log("secondlists's head", secondlist.head);
+</script>

@@ -1,0 +1,151 @@
+<script>
+
+function BST(){
+    this.root = null;
+}
+function Node(val){
+    this.value = val;
+    this.left = null;
+    this.right = null;
+}
+
+BST.prototype.insert = function(val){
+    if(!this.root){
+        this.root = new Node(val);
+        return this;
+    }
+    var runner = this.root;
+    while(runner){
+        if(val < runner.value){
+            if(runner.left){
+                runner = runner.left;
+            }
+            else {
+                runner.left = new Node(val);
+                return this;
+            }
+        }
+        else {
+            if(runner.right){
+                runner = runner.right;
+            }
+            else {
+                runner.right = new Node(val);
+                return this;
+            }
+        }
+    }
+}
+
+
+
+
+//other way 
+BST.prototype.insert2 = function(val){
+    if(!this.root){
+        this.root = new Node(val);
+        return this;
+    }
+    this.root.insert(val);
+    return this;
+}
+
+Node.prototype.insert = function(val){
+    if(val < this.value){
+        if(this.left){
+            this.left.insert(val);
+        }
+    }
+    else{
+        if(this.right){
+            this.right.insert(val);
+        }
+    }
+}
+var first = new BST();
+first.insert(30).insert(50).insert(40).insert(10);
+console.log(first.root);
+
+// var second = new BST();
+// second.insert2(40).insert(20).insert(25).insert(50);
+// console.log(second.root);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function BST(){
+//     this.root=null;
+
+//     this.insert = function(val){
+//         var node = new Node(val);
+//         var runner = this.root;
+//         var parent = runner;
+//         var right = false;
+//         console.log(runner)
+//         if(runner==null){
+//             this.root=node;
+//             console.log("first node inserted")
+//         }
+//         else{
+//             while(runner!=null){
+//             console.log(node);
+//             console.log("enter while loop");
+//             parent=runner;
+//                 if(node.value>runner.value){
+//                     runner=runner.right;
+//                     console.log("right");
+//                     right=true;
+//                 }
+//                 else if(node.value<=runner.value){
+//                     runner=runner.left;
+//                     console.log("left")
+//                     right=false;
+//                 }
+//             }
+//             if(right){
+//                 parent.right=node;
+//             }
+//             else{
+//                 parent.left=node;
+//             }
+//         }
+//         return this;
+//     }
+// }
+
+// function Node(val){
+//     this.value=val;
+//     this.left=null;
+//     this.right=null;
+// }
+
+// first = new BST();
+
+// console.log(first.insert(30));
+// console.log(first.insert(50));
+// console.log(first.insert(80));
+// console.log(first.insert(100));
+// // ==========================
+// console.log(first);
+
+// var first = new BST();
+// first.root = new Node(50);
+
+// console.log(BST);
+// console.log(first)
+// console.log(first.root);
+
+</script>
