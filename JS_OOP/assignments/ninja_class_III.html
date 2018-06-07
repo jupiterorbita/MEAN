@@ -1,0 +1,44 @@
+<script>
+class Ninja{
+    constructor(name){
+        this.name = name;
+        this.health = 100;
+        this.speed = 3;
+        this.strength = 3;
+    }
+    sayName(){
+        console.log(`my ninja name is ${this.name}`)
+    }
+    showStats(){
+        console.log(`this is from ${this.constructor.name} class`)
+        console.log(`my ninja name is: ${this.name}`)
+        console.log(`my STRENGTH = ${this.strength}`)
+        console.log(`my HEALTH = ${this.health}`)
+        console.log(`my SPEED = ${this.speed}`)
+    }
+    drinkSake(){
+        this.health += 10;
+        console.log('i drank sake and my health is:')
+        console.log(this.health)
+        return this;
+    }
+}
+
+class Sensei extends Ninja{
+    constructor(name){
+        super(name);
+        this.wisdom = 10;
+        this.health = 200;
+        this.speed = 10;
+        this.strength = 10;
+    }
+    speakWisdom(){
+        super.drinkSake();
+        console.log("What one programmer can do in one month, two programmers can do in two months.")
+    }
+}
+
+var sensei1 = new Sensei("Master Splinter")
+var ninja1 = new Ninja("leonardo")
+
+</script>

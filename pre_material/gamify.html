@@ -123,15 +123,15 @@ function pickup(){
 var target = mission();
 function mission(){
     var rand = Math.floor(Math.random() * 10) //random num 0-9 -NOT bees
-    console.log("===== mission start =====")
+    // console.log("===== mission start =====")
     // console.log(rand);
     // target = arr_names[rand]
     // console.log("target =>", target)
     // console.log("target.name =>",target.name)
-    console.log("==== mission set =====")
+    // console.log("==== mission set =====")
     return arr_names[rand]
 }
-console.log(target.name)
+console.log("target is =>", target.name)
 
 function drop(){
     if (player.location.name == target.name){
