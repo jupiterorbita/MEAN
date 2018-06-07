@@ -1,0 +1,146 @@
+<script>
+
+var eeyore = { name: 'eeyore', greet: function(){
+    console.log("hello i'm eeyone!! EEEEE1!!!!");
+}}
+var heffalumps = { name: 'heffalumps'}
+var kanga = { name: 'kanga'}
+var owl = { name: 'owl'}
+var chris = { name: 'chris'}
+var rabbit = { name: 'rabbit'}
+var gopher = {
+    name: 'gopher',
+    north: null,
+    south: null,
+    east: null,
+    west: null
+}
+var piglet = {name: 'piglet'}
+var winnie = {name: 'winnie'}
+var bees = {name: 'bees'}
+var tigger = {name: 'tigger'}
+
+//for rand names -bees
+var arr_names = [
+    eeyore, 
+    heffalumps,
+    kanga,
+    owl,
+    chris,
+    rabbit,
+    gopher,
+    piglet,
+    winnie,
+    tigger]
+console.log(arr_names)
+
+//greets
+heffalumps.greet = function(){
+    console.log("hello, i'm heffalumps!");
+}
+kanga.greet = function(){
+    console.log("hello, i'm "+this.name);
+}
+chris.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+winnie.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+tigger.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+owl.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+piglet.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+rabbit.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+bees.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+gopher.greet = function(){
+    console.log("hello!!! i'm "+this.name);
+}
+
+//directions
+heffalumps.west = eeyore;
+eeyore.east = heffalumps;
+eeyore.south = kanga;
+kanga.north = eeyore;
+kanga.south = chris;
+chris.north = kanga;
+chris.west = owl;
+chris.east = rabbit;
+chris.south = winnie;
+owl.east = chris;
+owl.south = piglet;
+rabbit.west = chris
+rabbit.east = gopher;
+rabbit.south = bees;
+gopher.west = rabbit;
+piglet.north = owl;
+piglet.east = winnie;
+winnie.east = bees;
+winnie.north = chris;
+winnie.west = bees;
+winnie.south = tigger;
+bees.west = winnie;
+bees.north = rabbit;
+tigger.north = winnie;
+
+
+var player = {location: kanga}
+player.honey = false;
+console.log("player.location.name =>", player.location.name)
+// console.log("player.north =>", player.north)
+
+function move (direction){
+    console.log("you are now at ", player.location.name)
+    if (player.location[direction]){
+        player.location = player.location[direction];
+        console.log("you MOVED and are now at ", player.location.name, "'s house");
+        player.location.greet();
+    }
+    else{
+        console.log("**** you can't move there! ****")
+    }
+}
+
+function pickup(){
+    if (player.location.name=="bees"){
+    player.honey = true;
+    console.log("picked up honey!!!! YUM YUM!!!!!")
+    }
+    else{
+        console.log("---- no honey here ----")
+    }
+}
+
+var target = mission();
+function mission(){
+    var rand = Math.floor(Math.random() * 10) //random num 0-9 -NOT bees
+    console.log("===== mission start =====")
+    // console.log(rand);
+    // target = arr_names[rand]
+    // console.log("target =>", target)
+    // console.log("target.name =>",target.name)
+    console.log("==== mission set =====")
+    return arr_names[rand]
+}
+console.log(target.name)
+
+function drop(){
+    if (player.location.name == target.name){
+        player.honey = false;
+        console.log("congratulations you delivers honey to "+target.name);
+    }
+    else{
+        console.log("whoops! no honey to drop here!")
+    }
+}
+
+</script>
